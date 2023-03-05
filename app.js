@@ -11,7 +11,7 @@ const app = express();
 const dbURI = 'mongodb+srv://rcannon13:Nc28e7DXOlbqJjuf@nodetuts.p9cxa1e.mongodb.net/node-tuts?retryWrites=true&w=majority';
 
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(result => app.listen(2700))
+  .then(result => app.listen(3000))
   .catch(err => console.log(err));
 
 // register view engine
@@ -36,6 +36,8 @@ app.get('/about', (req, res) => {
 });
 
 
+// blog routes
+app.use('/blog', blogRoutes);
 
 // 404 page
 app.use((req, res) => {
